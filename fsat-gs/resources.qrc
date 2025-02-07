@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>assets/batt_0bar.png</file>
+        <file>assets/batt_1bar.png</file>
+        <file>assets/batt_2bar.png</file>
+        <file>assets/batt_3bar.png</file>
+        <file>assets/batt_4bar.png</file>
+        <file>assets/batt_5bar.png</file>
+        <file>assets/batt_full.png</file>
+        <file>assets/batt_what.png</file>
+        <file>assets/bt_con.png</file>
+        <file>assets/bt_dis.png</file>
+        <file>assets/pow_off.png</file>
+        <file>assets/pow_on.png</file>
+        <file>assets/error.png</file>
+        <file>assets/error_no.png</file>
+        <file>assets/sat_off.png</file>
+        <file>assets/sat_on.png</file>
+    </qresource>
+</RCC>
