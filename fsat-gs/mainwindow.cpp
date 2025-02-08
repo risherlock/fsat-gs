@@ -30,7 +30,24 @@ MainWindow::MainWindow(QWidget *parent)
     pixmap_satcon = pixmap_satcon.scaled(50, 50, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->label_satcon->setPixmap(pixmap_satcon);
 
-    ui->label_bt->setStyleSheet("");
+    mAttitudeGauge = new QcGaugeWidget;
+    mAttitudeGauge = ui->widget;
+
+    mAttitudeGauge->addBackground(99);
+    QcBackgroundItem *bkg = mAttitudeGauge->addBackground(92);
+    bkg->clearrColors();
+    bkg->addColor(0.1,Qt::black);
+    bkg->addColor(1.0,Qt::white);
+    mAttMeter = mAttitudeGauge->addAttitudeMeter(88);
+
+    mAttitudeNeedle = mAttitudeGauge->addNeedle(70);
+    mAttitudeNeedle->setMinDegree(0);
+    mAttitudeNeedle->setMaxDegree(180);
+    mAttitudeNeedle->setValueRange(0,180);
+    mAttitudeNeedle->setCurrentValue(90);
+    mAttitudeNeedle->setColor(Qt::white);
+    mAttitudeNeedle->setNeedle(QcNeedleItem::AttitudeMeterNeedle);
+    mAttitudeGauge->addGlass(80);
 }
 
 MainWindow::~MainWindow()

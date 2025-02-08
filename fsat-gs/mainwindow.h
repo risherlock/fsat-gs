@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "qcgaugewidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,5 +23,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    QcGaugeWidget * mAttitudeGauge;
+    QcNeedleItem * mAttitudeNeedle;
+    QcAttitudeMeter *mAttMeter;
 };
 #endif // MAINWINDOW_H

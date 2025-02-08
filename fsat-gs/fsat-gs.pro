@@ -10,9 +10,11 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
+    qcgaugewidget.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    qcgaugewidget.h \
     mainwindow.h
 
 FORMS += \
@@ -30,3 +32,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+QT += gui widgets
+QT += core gui opengl
+QT += widgets
+QT += core gui widgets
+QT+=designer
