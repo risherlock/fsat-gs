@@ -24,8 +24,18 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    void init_compass_gauge(void);
+    void init_angular_rate_gauge(void);
+    void init_inclinometer_gauge(void);
+
     QcGaugeWidget * mAttitudeGauge;
     QcNeedleItem * mAttitudeNeedle;
     QcAttitudeMeter *mAttMeter;
+
+    QcGaugeWidget * mCompassGauge;
+    QcNeedleItem *mCompassNeedle;
+
+    QcGaugeWidget * mSpeedGauge;
+    QcNeedleItem *mSpeedNeedle;
 };
 #endif // MAINWINDOW_H
