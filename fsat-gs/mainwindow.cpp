@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Bluetooth connection
     QPixmap pixmap_bt0(":/icons/assets/bt_dis.png");
     pixmap_bt0 = pixmap_bt0.scaled(50, 50, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    ui->label_bluetooth->setPixmap(pixmap_bt0);
+    ui->label_bt->setPixmap(pixmap_bt0);
 
     // Battery levels
     QPixmap pixmap_batt(":/icons/assets/batt_what.png");
@@ -23,14 +23,14 @@ MainWindow::MainWindow(QWidget *parent)
     // Error
     QPixmap pixmap_error(":/icons/assets/error_no.png");
     pixmap_error = pixmap_error.scaled(50, 50, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    ui->label_error->setPixmap(pixmap_error);
+    ui->label_err->setPixmap(pixmap_error);
 
     // Satellite switch
     QPixmap pixmap_satcon(":/icons/assets/sat_off.png");
     pixmap_satcon = pixmap_satcon.scaled(50, 50, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->label_satcon->setPixmap(pixmap_satcon);
 
-    ui->label_bluetooth->setStyleSheet("");
+    ui->label_bt->setStyleSheet("");
 }
 
 MainWindow::~MainWindow()
@@ -49,12 +49,12 @@ void MainWindow::on_push_power_clicked()
 
     if (flag)
     {
-        ui->label_bluetooth->setPixmap(pixmap_bt0);
+        ui->label_bt->setPixmap(pixmap_bt0);
         ui->push_power->setIcon(QIcon(":/icons/assets/pow_on.png"));
     }
     else
     {
-        ui->label_bluetooth->setPixmap(pixmap_bt1);
+        ui->label_bt->setPixmap(pixmap_bt1);
         ui->push_power->setIcon(QIcon(":/icons/assets/pow_off.png"));
     }
 
