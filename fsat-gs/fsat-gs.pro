@@ -1,6 +1,5 @@
-QT       += core gui
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += core gui opengl printsupport designer
 
 CONFIG += c++17
 
@@ -11,11 +10,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     qcgaugewidget.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
     qcgaugewidget.h \
-    mainwindow.h
+    mainwindow.h \
+    qcustomplot.h
 
 FORMS += \
     mainwindow.ui
@@ -32,9 +33,3 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
-
-QT += gui widgets
-QT += core gui opengl
-QT += widgets
-QT += core gui widgets
-QT+=designer

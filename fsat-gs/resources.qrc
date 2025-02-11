@@ -16,5 +16,6 @@
         <file>assets/error_no.png</file>
         <file>assets/sat_off.png</file>
         <file>assets/sat_on.png</file>
+        <file>assets/send.png</file>
     </qresource>
 </RCC>
