@@ -19,7 +19,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>901</width>
+      <width>921</width>
       <height>621</height>
      </rect>
     </property>
@@ -35,7 +35,7 @@
      <enum>QTabWidget::TabShape::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="home">
      <attribute name="title">
@@ -1180,65 +1180,23 @@
      <attribute name="title">
       <string>Motor Rate</string>
      </attribute>
-     <widget class="QSlider" name="horizontalSlider">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>500</y>
-        <width>571</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-     </widget>
      <widget class="QCustomPlot" name="widget_plot_motor_rate" native="true">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>30</x>
         <y>50</y>
-        <width>741</width>
+        <width>861</width>
         <height>311</height>
        </rect>
       </property>
      </widget>
-     <widget class="QWidget" name="layoutWidget_5">
-      <property name="geometry">
-       <rect>
-        <x>410</x>
-        <y>540</y>
-        <width>131</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <item>
-        <widget class="QLineEdit" name="lineEdit_3"/>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_18">
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-           <pointsize>12</pointsize>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>°/s</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QGroupBox" name="groupBox_6">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>30</x>
         <y>390</y>
-        <width>551</width>
-        <height>91</height>
+        <width>351</width>
+        <height>121</height>
        </rect>
       </property>
       <property name="font">
@@ -1254,13 +1212,39 @@
       <property name="alignment">
        <set>Qt::AlignmentFlag::AlignCenter</set>
       </property>
-      <widget class="QWidget" name="layoutWidget">
+      <widget class="QPushButton" name="push_power_5">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>300</x>
+         <y>50</y>
+         <width>35</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/icons/assets/send.png</normaloff>:/icons/assets/send.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
          <y>30</y>
-         <width>471</width>
-         <height>48</height>
+         <width>261</width>
+         <height>73</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout">
@@ -1296,15 +1280,15 @@
           <property name="sizeHint" stdset="0">
            <size>
             <width>100</width>
-            <height>20</height>
+            <height>18</height>
            </size>
           </property>
          </spacer>
         </item>
         <item row="0" column="2">
-         <layout class="QHBoxLayout" name="horizontalLayout_9">
+         <layout class="QHBoxLayout" name="horizontalLayout_10">
           <item>
-           <widget class="QLabel" name="label_33">
+           <widget class="QLabel" name="label_34">
             <property name="font">
              <font>
               <family>Courier New</family>
@@ -1313,7 +1297,7 @@
              </font>
             </property>
             <property name="text">
-             <string>kd:</string>
+             <string>tf:</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1321,44 +1305,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_6"/>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="3">
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>100</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="4">
-         <layout class="QHBoxLayout" name="horizontalLayout_12">
-          <item>
-           <widget class="QLabel" name="label_36">
-            <property name="font">
-             <font>
-              <family>Courier New</family>
-              <pointsize>12</pointsize>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>b:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_9"/>
+           <widget class="QLineEdit" name="lineEdit_7"/>
           </item>
          </layout>
         </item>
@@ -1394,15 +1341,15 @@
           <property name="sizeHint" stdset="0">
            <size>
             <width>100</width>
-            <height>20</height>
+            <height>18</height>
            </size>
           </property>
          </spacer>
         </item>
         <item row="1" column="2">
-         <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <layout class="QHBoxLayout" name="horizontalLayout_12">
           <item>
-           <widget class="QLabel" name="label_34">
+           <widget class="QLabel" name="label_36">
             <property name="font">
              <font>
               <family>Courier New</family>
@@ -1411,7 +1358,7 @@
              </font>
             </property>
             <property name="text">
-             <string>tf:</string>
+             <string>b:</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1419,11 +1366,35 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_7"/>
+           <widget class="QLineEdit" name="lineEdit_9"/>
           </item>
          </layout>
         </item>
-        <item row="1" column="3">
+        <item row="2" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <item>
+           <widget class="QLabel" name="label_33">
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>kd:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_6"/>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="1">
          <spacer name="horizontalSpacer_4">
           <property name="orientation">
            <enum>Qt::Orientation::Horizontal</enum>
@@ -1431,12 +1402,12 @@
           <property name="sizeHint" stdset="0">
            <size>
             <width>100</width>
-            <height>20</height>
+            <height>18</height>
            </size>
           </property>
          </spacer>
         </item>
-        <item row="1" column="4">
+        <item row="2" column="2">
          <layout class="QHBoxLayout" name="horizontalLayout_11">
           <item>
            <widget class="QLabel" name="label_35">
@@ -1459,6 +1430,95 @@
            <widget class="QLineEdit" name="lineEdit_8"/>
           </item>
          </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_9">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>390</y>
+        <width>491</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+        <pointsize>12</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="title">
+       <string>SET POINT</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+      <widget class="QSlider" name="horizontalSlider">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>471</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>60</y>
+         <width>166</width>
+         <height>33</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_26">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QLineEdit" name="lineEdit_3"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_18">
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>°/s</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="push_power_4">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/icons/assets/send.png</normaloff>:/icons/assets/send.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>25</width>
+            <height>25</height>
+           </size>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1783,9 +1843,9 @@
       <property name="geometry">
        <rect>
         <x>180</x>
-        <y>390</y>
+        <y>340</y>
         <width>561</width>
-        <height>91</height>
+        <height>141</height>
        </rect>
       </property>
       <property name="font">
