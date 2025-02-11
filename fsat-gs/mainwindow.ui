@@ -35,7 +35,7 @@
      <enum>QTabWidget::TabShape::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="home">
      <attribute name="title">
@@ -44,9 +44,9 @@
      <widget class="QGroupBox" name="groupBox_3">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>140</y>
-        <width>371</width>
+        <x>410</x>
+        <y>180</y>
+        <width>411</width>
         <height>251</height>
        </rect>
       </property>
@@ -66,7 +66,7 @@
       <widget class="QWidget" name="verticalLayoutWidget">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>40</x>
          <y>40</y>
          <width>331</width>
          <height>191</height>
@@ -149,9 +149,9 @@
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>140</y>
-        <width>251</width>
+        <x>70</x>
+        <y>180</y>
+        <width>301</width>
         <height>251</height>
        </rect>
       </property>
@@ -171,8 +171,8 @@
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>40</y>
+         <x>40</x>
+         <y>50</y>
          <width>221</width>
          <height>51</height>
         </rect>
@@ -255,10 +255,10 @@
       <widget class="QPushButton" name="pushButton_6">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>40</x>
          <y>120</y>
          <width>219</width>
-         <height>20</height>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -275,8 +275,8 @@
       <widget class="QPushButton" name="push_power">
        <property name="geometry">
         <rect>
-         <x>90</x>
-         <y>160</y>
+         <x>120</x>
+         <y>170</y>
          <width>61</width>
          <height>51</height>
         </rect>
@@ -302,21 +302,21 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>871</width>
-        <height>31</height>
+        <x>11</x>
+        <y>30</y>
+        <width>891</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Georgia</family>
-        <pointsize>15</pointsize>
-        <bold>false</bold>
+        <family>Courier New</family>
+        <pointsize>25</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
-       <string>GROUND STATION AND MISSION CONTROL</string>
+       <string>FLOATSAT</string>
       </property>
       <property name="scaledContents">
        <bool>false</bool>
@@ -329,7 +329,7 @@
       <property name="geometry">
        <rect>
         <x>760</x>
-        <y>540</y>
+        <y>20</y>
         <width>134</width>
         <height>32</height>
        </rect>
@@ -449,6 +449,51 @@
        </item>
       </layout>
      </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>30</y>
+        <width>71</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/icons/assets/lablogo.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_37">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>80</y>
+        <width>891</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>GROUND STATION AND MISSION CONTROL</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_8">
      <attribute name="title">
@@ -458,7 +503,7 @@
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>359</y>
+        <y>379</y>
         <width>781</width>
         <height>141</height>
        </rect>
@@ -991,7 +1036,7 @@
       <property name="geometry">
        <rect>
         <x>62</x>
-        <y>70</y>
+        <y>90</y>
         <width>781</width>
         <height>238</height>
        </rect>
@@ -1063,7 +1108,7 @@
       <property name="geometry">
        <rect>
         <x>760</x>
-        <y>540</y>
+        <y>20</y>
         <width>134</width>
         <height>32</height>
        </rect>
@@ -1187,7 +1232,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
+        <y>20</y>
         <width>871</width>
         <height>31</height>
        </rect>
@@ -1218,7 +1263,7 @@
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>50</y>
+        <y>70</y>
         <width>861</width>
         <height>311</height>
        </rect>
@@ -1228,7 +1273,7 @@
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>390</y>
+        <y>410</y>
         <width>351</width>
         <height>121</height>
        </rect>
@@ -1472,7 +1517,7 @@
       <property name="geometry">
        <rect>
         <x>400</x>
-        <y>390</y>
+        <y>410</y>
         <width>491</width>
         <height>121</height>
        </rect>
@@ -1494,10 +1539,13 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>40</y>
+         <y>30</y>
          <width>471</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="sliderPosition">
+        <number>49</number>
        </property>
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
@@ -1561,7 +1609,7 @@
       <property name="geometry">
        <rect>
         <x>760</x>
-        <y>540</y>
+        <y>20</y>
         <width>134</width>
         <height>32</height>
        </rect>
@@ -1685,7 +1733,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
+        <y>20</y>
         <width>871</width>
         <height>31</height>
        </rect>
@@ -1716,7 +1764,7 @@
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>50</y>
+        <y>70</y>
         <width>861</width>
         <height>311</height>
        </rect>
@@ -1726,7 +1774,7 @@
       <property name="geometry">
        <rect>
         <x>400</x>
-        <y>390</y>
+        <y>410</y>
         <width>491</width>
         <height>121</height>
        </rect>
@@ -1748,10 +1796,13 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>40</y>
+         <y>30</y>
          <width>471</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="sliderPosition">
+        <number>49</number>
        </property>
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
@@ -1815,7 +1866,7 @@
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>390</y>
+        <y>410</y>
         <width>351</width>
         <height>121</height>
        </rect>
@@ -2059,7 +2110,7 @@
       <property name="geometry">
        <rect>
         <x>760</x>
-        <y>540</y>
+        <y>20</y>
         <width>134</width>
         <height>32</height>
        </rect>
@@ -2183,7 +2234,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
+        <y>20</y>
         <width>871</width>
         <height>31</height>
        </rect>
@@ -2214,7 +2265,7 @@
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>50</y>
+        <y>70</y>
         <width>861</width>
         <height>311</height>
        </rect>
@@ -2224,7 +2275,7 @@
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>390</y>
+        <y>410</y>
         <width>351</width>
         <height>121</height>
        </rect>
@@ -2468,7 +2519,7 @@
       <property name="geometry">
        <rect>
         <x>400</x>
-        <y>390</y>
+        <y>410</y>
         <width>491</width>
         <height>121</height>
        </rect>
@@ -2490,7 +2541,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>40</y>
+         <y>30</y>
          <width>471</width>
          <height>20</height>
         </rect>
@@ -2557,7 +2608,7 @@
       <property name="geometry">
        <rect>
         <x>760</x>
-        <y>540</y>
+        <y>20</y>
         <width>134</width>
         <height>32</height>
        </rect>
@@ -2681,7 +2732,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
+        <y>20</y>
         <width>871</width>
         <height>31</height>
        </rect>
@@ -2704,6 +2755,28 @@
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>2</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>2</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_13"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
