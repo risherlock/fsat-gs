@@ -30,9 +30,37 @@ MainWindow::MainWindow(QWidget *parent)
     pixmap_satcon = pixmap_satcon.scaled(50, 50, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->label_satcon->setPixmap(pixmap_satcon);
 
+    // AHRS instruments
     init_compass_gauge();
     init_angular_rate_gauge();
     init_inclinometer_gauge();
+
+    // Labels on motor angular rate
+    ui->widget_plot_motor_rate->xAxis->setLabel("Time [s]");
+    ui->widget_plot_motor_rate->yAxis->setLabel("[°/s]");
+    ui->widget_plot_motor_rate->xAxis->setLabelFont(QFont("Courier New", 12));
+    ui->widget_plot_motor_rate->yAxis->setLabelFont(QFont("Courier New", 12));
+    ui->widget_plot_motor_rate->xAxis->setLabelColor(Qt::blue);
+    ui->widget_plot_motor_rate->yAxis->setLabelColor(Qt::blue);
+    ui->widget_plot_motor_rate->replot();
+
+    // Labels on satellite angular rate
+    ui->widget_plot_sat_rate->xAxis->setLabel("Time [s]");
+    ui->widget_plot_sat_rate->yAxis->setLabel("[°/s]");
+    ui->widget_plot_sat_rate->xAxis->setLabelFont(QFont("Courier New", 12));
+    ui->widget_plot_sat_rate->yAxis->setLabelFont(QFont("Courier New", 12));
+    ui->widget_plot_sat_rate->xAxis->setLabelColor(Qt::blue);
+    ui->widget_plot_sat_rate->yAxis->setLabelColor(Qt::blue);
+    ui->widget_plot_sat_rate->replot();
+
+    // Labels on satellite yaw
+    ui->widget_plot_yaw->xAxis->setLabel("Time [s]");
+    ui->widget_plot_yaw->yAxis->setLabel("[°]");
+    ui->widget_plot_yaw->xAxis->setLabelFont(QFont("Courier New", 12));
+    ui->widget_plot_yaw->yAxis->setLabelFont(QFont("Courier New", 12));
+    ui->widget_plot_yaw->xAxis->setLabelColor(Qt::blue);
+    ui->widget_plot_yaw->yAxis->setLabelColor(Qt::blue);
+    ui->widget_plot_yaw->replot();
 }
 
 void MainWindow::init_compass_gauge(void)

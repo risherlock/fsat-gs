@@ -35,173 +35,17 @@
      <enum>QTabWidget::TabShape::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="home">
      <attribute name="title">
       <string>Home</string>
      </attribute>
-     <widget class="QGroupBox" name="groupBox">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>130</y>
-        <width>81</width>
-        <height>251</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Courier New</family>
-        <pointsize>12</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="title">
-       <string>STATUS</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>20</y>
-         <width>43</width>
-         <height>221</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
-         <widget class="QLabel" name="label_bt">
-          <property name="minimumSize">
-           <size>
-            <width>41</width>
-            <height>41</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>41</width>
-            <height>41</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="resources.qrc">:/icons/assets/bt_dis.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_batt">
-          <property name="minimumSize">
-           <size>
-            <width>41</width>
-            <height>41</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>41</width>
-            <height>41</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="resources.qrc">:/icons/assets/batt_what.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_err">
-          <property name="minimumSize">
-           <size>
-            <width>41</width>
-            <height>41</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>41</width>
-            <height>41</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="resources.qrc">:/icons/assets/error_no.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_satcon">
-          <property name="minimumSize">
-           <size>
-            <width>41</width>
-            <height>41</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>41</width>
-            <height>41</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="resources.qrc">:/icons/assets/sat_off.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </widget>
      <widget class="QGroupBox" name="groupBox_3">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>130</y>
+        <x>370</x>
+        <y>140</y>
         <width>371</width>
         <height>251</height>
        </rect>
@@ -305,8 +149,8 @@
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>130</y>
+        <x>100</x>
+        <y>140</y>
         <width>251</width>
         <height>251</height>
        </rect>
@@ -459,7 +303,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>20</y>
+        <y>10</y>
         <width>871</width>
         <height>31</height>
        </rect>
@@ -474,9 +318,136 @@
       <property name="text">
        <string>GROUND STATION AND MISSION CONTROL</string>
       </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
       <property name="alignment">
        <set>Qt::AlignmentFlag::AlignCenter</set>
       </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_25">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>540</y>
+        <width>134</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_batt">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/batt_what.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_satcon">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/sat_off.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_bt">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/bt_dis.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_err">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/error_no.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_8">
@@ -487,7 +458,7 @@
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>350</y>
+        <y>359</y>
         <width>781</width>
         <height>141</height>
        </rect>
@@ -1020,7 +991,7 @@
       <property name="geometry">
        <rect>
         <x>62</x>
-        <y>51</y>
+        <y>70</y>
         <width>781</width>
         <height>238</height>
        </rect>
@@ -1028,35 +999,6 @@
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_11">
-         <item>
-          <widget class="QLabel" name="label_29">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Courier New</family>
-             <pointsize>12</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>ANGULAR RATE</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignmentFlag::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
          <item>
           <widget class="QcGaugeWidget" name="widget_angular_rate" native="true">
            <property name="minimumSize">
@@ -1078,35 +1020,6 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_10">
          <item>
-          <widget class="QLabel" name="label_30">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Courier New</family>
-             <pointsize>12</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>ROLL &amp; PITCH</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignmentFlag::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QcGaugeWidget" name="widget_inclinometer" native="true">
            <property name="minimumSize">
             <size>
@@ -1127,35 +1040,6 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_9">
          <item>
-          <widget class="QLabel" name="label_31">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Courier New</family>
-             <pointsize>12</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>YAW</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignmentFlag::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QcGaugeWidget" name="widget_compass" native="true">
            <property name="minimumSize">
             <size>
@@ -1174,6 +1058,156 @@
         </layout>
        </item>
       </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_21">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>540</y>
+        <width>134</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_55">
+       <item>
+        <widget class="QLabel" name="label_batt_3">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/batt_what.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_satcon_3">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/sat_off.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_bt_3">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/bt_dis.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_err_3">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/error_no.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>871</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>ATTITUDE HEADING REFERENCE SYSTEM</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_7">
@@ -1238,7 +1272,7 @@
         </size>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1358,7 +1392,7 @@
              </font>
             </property>
             <property name="text">
-             <string>b:</string>
+             <string>b :</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1419,7 +1453,7 @@
              </font>
             </property>
             <property name="text">
-             <string>c:</string>
+             <string>c :</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1469,7 +1503,7 @@
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>180</x>
@@ -1523,70 +1557,267 @@
        </layout>
       </widget>
      </widget>
-    </widget>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Satellite Rate</string>
-     </attribute>
-     <widget class="QSlider" name="horizontalSlider_2">
+     <widget class="QWidget" name="layoutWidget_22">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>500</y>
-        <width>571</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QCustomPlot" name="widget_plot_sat_rate" native="true">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>50</y>
-        <width>741</width>
-        <height>311</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QWidget" name="layoutWidget_6">
-      <property name="geometry">
-       <rect>
-        <x>410</x>
+        <x>760</x>
         <y>540</y>
-        <width>131</width>
-        <height>21</height>
+        <width>134</width>
+        <height>32</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_56">
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_10">
-         <property name="font">
-          <font>
-           <family>Courier New</family>
-           <pointsize>12</pointsize>
-           <bold>false</bold>
-          </font>
+        <widget class="QLabel" name="label_batt_4">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
          <property name="text">
-          <string>°/s</string>
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/batt_what.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_satcon_4">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/sat_off.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_bt_4">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/bt_dis.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_err_4">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/error_no.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
-     <widget class="QGroupBox" name="groupBox_7">
+     <widget class="QLabel" name="label_29">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>10</x>
+        <y>10</y>
+        <width>871</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>MOTOR ANGULAR VELOCITY CONTROL</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Satellite Rate</string>
+     </attribute>
+     <widget class="QCustomPlot" name="widget_plot_sat_rate" native="true">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>861</width>
+        <height>311</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_18">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
         <y>390</y>
-        <width>551</width>
-        <height>91</height>
+        <width>491</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+        <pointsize>12</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="title">
+       <string>SET POINT</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+      <widget class="QSlider" name="horizontalSlider_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>471</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_18">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>60</y>
+         <width>166</width>
+         <height>33</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_46">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_47">
+          <item>
+           <widget class="QLineEdit" name="lineEdit_36"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_90">
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>°/s</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="push_power_11">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/icons/assets/send.png</normaloff>:/icons/assets/send.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>25</width>
+            <height>25</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_19">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>390</y>
+        <width>351</width>
+        <height>121</height>
        </rect>
       </property>
       <property name="font">
@@ -1602,20 +1833,46 @@
       <property name="alignment">
        <set>Qt::AlignmentFlag::AlignCenter</set>
       </property>
-      <widget class="QWidget" name="layoutWidget_9">
+      <widget class="QPushButton" name="push_power_12">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>30</y>
-         <width>471</width>
-         <height>48</height>
+         <x>300</x>
+         <y>50</y>
+         <width>35</width>
+         <height>31</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout_2">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/icons/assets/send.png</normaloff>:/icons/assets/send.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_19">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>261</width>
+         <height>73</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_6">
         <item row="0" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <layout class="QHBoxLayout" name="horizontalLayout_48">
           <item>
-           <widget class="QLabel" name="label_37">
+           <widget class="QLabel" name="label_91">
             <property name="font">
              <font>
               <family>Courier New</family>
@@ -1632,125 +1889,27 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_10"/>
+           <widget class="QLineEdit" name="lineEdit_37"/>
           </item>
          </layout>
         </item>
         <item row="0" column="1">
-         <spacer name="horizontalSpacer_5">
+         <spacer name="horizontalSpacer_19">
           <property name="orientation">
            <enum>Qt::Orientation::Horizontal</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>100</width>
-            <height>20</height>
+            <height>18</height>
            </size>
           </property>
          </spacer>
         </item>
         <item row="0" column="2">
-         <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <layout class="QHBoxLayout" name="horizontalLayout_49">
           <item>
-           <widget class="QLabel" name="label_38">
-            <property name="font">
-             <font>
-              <family>Courier New</family>
-              <pointsize>12</pointsize>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>kd:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_11"/>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="3">
-         <spacer name="horizontalSpacer_6">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>100</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="4">
-         <layout class="QHBoxLayout" name="horizontalLayout_15">
-          <item>
-           <widget class="QLabel" name="label_39">
-            <property name="font">
-             <font>
-              <family>Courier New</family>
-              <pointsize>12</pointsize>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>b:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_12"/>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_16">
-          <item>
-           <widget class="QLabel" name="label_40">
-            <property name="font">
-             <font>
-              <family>Courier New</family>
-              <pointsize>12</pointsize>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>ki:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_13"/>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="1">
-         <spacer name="horizontalSpacer_7">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>100</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="2">
-         <layout class="QHBoxLayout" name="horizontalLayout_17">
-          <item>
-           <widget class="QLabel" name="label_41">
+           <widget class="QLabel" name="label_92">
             <property name="font">
              <font>
               <family>Courier New</family>
@@ -1767,27 +1926,14 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_14"/>
+           <widget class="QLineEdit" name="lineEdit_38"/>
           </item>
          </layout>
         </item>
-        <item row="1" column="3">
-         <spacer name="horizontalSpacer_8">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>100</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="4">
-         <layout class="QHBoxLayout" name="horizontalLayout_18">
+        <item row="1" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_50">
           <item>
-           <widget class="QLabel" name="label_42">
+           <widget class="QLabel" name="label_93">
             <property name="font">
              <font>
               <family>Courier New</family>
@@ -1796,7 +1942,7 @@
              </font>
             </property>
             <property name="text">
-             <string>c:</string>
+             <string>ki:</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1804,77 +1950,27 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_15"/>
+           <widget class="QLineEdit" name="lineEdit_39"/>
           </item>
          </layout>
         </item>
-       </layout>
-      </widget>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_9">
-     <attribute name="title">
-      <string>Satellite Yaw</string>
-     </attribute>
-     <widget class="QSlider" name="horizontalSlider_3">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>500</y>
-        <width>571</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QCustomPlot" name="widget_plot_yaw" native="true">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>50</y>
-        <width>741</width>
-        <height>311</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_8">
-      <property name="geometry">
-       <rect>
-        <x>180</x>
-        <y>340</y>
-        <width>561</width>
-        <height>141</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Courier New</family>
-        <pointsize>12</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="title">
-       <string>PID PARAMETERS</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
-      </property>
-      <widget class="QWidget" name="layoutWidget_10">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>30</y>
-         <width>471</width>
-         <height>48</height>
-        </rect>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_3">
-        <item row="0" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_19">
+        <item row="1" column="1">
+         <spacer name="horizontalSpacer_20">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>100</width>
+            <height>18</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_51">
           <item>
-           <widget class="QLabel" name="label_43">
+           <widget class="QLabel" name="label_94">
             <property name="font">
              <font>
               <family>Courier New</family>
@@ -1883,7 +1979,7 @@
              </font>
             </property>
             <property name="text">
-             <string>kp:</string>
+             <string>b :</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1891,27 +1987,14 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_16"/>
+           <widget class="QLineEdit" name="lineEdit_40"/>
           </item>
          </layout>
         </item>
-        <item row="0" column="1">
-         <spacer name="horizontalSpacer_9">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>100</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="2">
-         <layout class="QHBoxLayout" name="horizontalLayout_20">
+        <item row="2" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_52">
           <item>
-           <widget class="QLabel" name="label_44">
+           <widget class="QLabel" name="label_95">
             <property name="font">
              <font>
               <family>Courier New</family>
@@ -1928,24 +2011,311 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_17"/>
+           <widget class="QLineEdit" name="lineEdit_41"/>
           </item>
          </layout>
         </item>
-        <item row="0" column="3">
-         <spacer name="horizontalSpacer_10">
+        <item row="2" column="1">
+         <spacer name="horizontalSpacer_21">
           <property name="orientation">
            <enum>Qt::Orientation::Horizontal</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>100</width>
-            <height>20</height>
+            <height>18</height>
            </size>
           </property>
          </spacer>
         </item>
-        <item row="0" column="4">
+        <item row="2" column="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_53">
+          <item>
+           <widget class="QLabel" name="label_96">
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>c :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_42"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_23">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>540</y>
+        <width>134</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_57">
+       <item>
+        <widget class="QLabel" name="label_batt_5">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/batt_what.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_satcon_5">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/sat_off.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_bt_5">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/bt_dis.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_err_5">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/error_no.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_30">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>871</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>SATELLTIE ANGULAR VELOCITY CONTROL</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_9">
+     <attribute name="title">
+      <string>Satellite Yaw</string>
+     </attribute>
+     <widget class="QCustomPlot" name="widget_plot_yaw" native="true">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>861</width>
+        <height>311</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_8">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>390</y>
+        <width>351</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+        <pointsize>12</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="title">
+       <string>PID PARAMETERS</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+      <widget class="QPushButton" name="push_power_14">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>50</y>
+         <width>35</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/icons/assets/send.png</normaloff>:/icons/assets/send.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_20">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>261</width>
+         <height>73</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_20">
+          <item>
+           <widget class="QLabel" name="label_44">
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>kp:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_17"/>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="1">
+         <spacer name="horizontalSpacer_9">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>100</width>
+            <height>18</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="2">
          <layout class="QHBoxLayout" name="horizontalLayout_21">
           <item>
            <widget class="QLabel" name="label_45">
@@ -1957,7 +2327,7 @@
              </font>
             </property>
             <property name="text">
-             <string>b:</string>
+             <string>tf:</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1994,14 +2364,14 @@
          </layout>
         </item>
         <item row="1" column="1">
-         <spacer name="horizontalSpacer_11">
+         <spacer name="horizontalSpacer_10">
           <property name="orientation">
            <enum>Qt::Orientation::Horizontal</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>100</width>
-            <height>20</height>
+            <height>18</height>
            </size>
           </property>
          </spacer>
@@ -2018,7 +2388,7 @@
              </font>
             </property>
             <property name="text">
-             <string>tf:</string>
+             <string>b :</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -2030,20 +2400,7 @@
           </item>
          </layout>
         </item>
-        <item row="1" column="3">
-         <spacer name="horizontalSpacer_12">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>100</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="4">
+        <item row="2" column="0">
          <layout class="QHBoxLayout" name="horizontalLayout_24">
           <item>
            <widget class="QLabel" name="label_48">
@@ -2055,7 +2412,7 @@
              </font>
             </property>
             <property name="text">
-             <string>c:</string>
+             <string>kd:</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -2067,87 +2424,284 @@
           </item>
          </layout>
         </item>
+        <item row="2" column="1">
+         <spacer name="horizontalSpacer_11">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>100</width>
+            <height>18</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_25">
+          <item>
+           <widget class="QLabel" name="label_97">
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>c :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_43"/>
+          </item>
+         </layout>
+        </item>
        </layout>
       </widget>
-      <widget class="QPushButton" name="push_power_3">
-       <property name="geometry">
-        <rect>
-         <x>520</x>
-         <y>40</y>
-         <width>31</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="resources.qrc">
-         <normaloff>:/icons/assets/send.png</normaloff>:/icons/assets/send.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>25</width>
-         <height>25</height>
-        </size>
-       </property>
-      </widget>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QGroupBox" name="groupBox_20">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>530</y>
-        <width>152</width>
-        <height>33</height>
+        <x>400</x>
+        <y>390</y>
+        <width>491</width>
+        <height>121</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_25">
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+        <pointsize>12</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="title">
+       <string>SET POINT</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+      <widget class="QSlider" name="horizontalSlider_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>471</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_10">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>60</y>
+         <width>166</width>
+         <height>33</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_54">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_19">
+          <item>
+           <widget class="QLineEdit" name="lineEdit_16"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_43">
+            <property name="font">
+             <font>
+              <family>Courier New</family>
+              <pointsize>12</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>°/s</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="push_power_13">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/icons/assets/send.png</normaloff>:/icons/assets/send.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>25</width>
+            <height>25</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_24">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>540</y>
+        <width>134</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_58">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLineEdit" name="lineEdit_2"/>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_14">
-           <property name="font">
-            <font>
-             <family>Courier New</family>
-             <pointsize>12</pointsize>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>°</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QPushButton" name="push_power_2">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
+        <widget class="QLabel" name="label_batt_6">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset resource="resources.qrc">
-           <normaloff>:/icons/assets/send.png</normaloff>:/icons/assets/send.png</iconset>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/batt_what.png</pixmap>
          </property>
-         <property name="iconSize">
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_satcon_6">
+         <property name="minimumSize">
           <size>
-           <width>25</width>
-           <height>25</height>
+           <width>30</width>
+           <height>30</height>
           </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/sat_off.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_bt_6">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/bt_dis.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_err_6">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/assets/error_no.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>871</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Georgia</family>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>SATELLITE YAW CONTROL</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
      </widget>
     </widget>
    </widget>
