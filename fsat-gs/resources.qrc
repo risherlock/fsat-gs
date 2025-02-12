@@ -18,5 +18,6 @@
         <file>assets/sat_on.png</file>
         <file>assets/send.png</file>
         <file>assets/lablogo.png</file>
+        <file>assets/refresh.png</file>
     </qresource>
 </RCC>

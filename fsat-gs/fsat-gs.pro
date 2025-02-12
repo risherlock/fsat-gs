@@ -1,5 +1,5 @@
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-QT += core gui opengl printsupport designer
+QT += core gui opengl printsupport designer serialport
 
 CONFIG += c++17
 

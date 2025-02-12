@@ -1,3 +1,6 @@
+#include <QSerialPortInfo>
+#include <QDebug>
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -6,9 +9,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    // Power switch
-    ui->push_power->setIcon(QIcon(":/icons/assets/pow_off.png"));
 
     // Bluetooth connection
     QPixmap pixmap_bt0(":/icons/assets/bt_dis.png");
@@ -61,6 +61,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_plot_yaw->xAxis->setLabelColor(Qt::blue);
     ui->widget_plot_yaw->yAxis->setLabelColor(Qt::blue);
     ui->widget_plot_yaw->replot();
+
+    ui->comboBox_btbaud->addItem("9600", 9600);
+    ui->comboBox_btbaud->addItem("19200", 19200);
+    ui->comboBox_btbaud->addItem("38400", 38400);
+    ui->comboBox_btbaud->addItem("57600", 57600);
+    ui->comboBox_btbaud->addItem("115200", 115200);
+    populate_serial_ports(ui->comboBox_btport);
 }
 
 void MainWindow::init_compass_gauge(void)
@@ -167,30 +174,89 @@ void MainWindow::init_inclinometer_gauge(void)
     mAttitudeGauge->addGlass(80);
 }
 
+void MainWindow::populate_serial_ports(QComboBox *cb)
+{
+    cb->clear();
+
+    foreach (const QSerialPortInfo &port, QSerialPortInfo::availablePorts())
+    {
+        cb->addItem(port.portName());
+    }
+
+    if (cb->count() == 0)
+    {
+        cb->addItem("No Ports Available");
+    }
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-void MainWindow::on_push_power_clicked()
+void MainWindow::on_pusb_btconn_clicked()
 {
-    static bool flag = true;
-
-    QPixmap pixmap_bt0(":/icons/assets/bt_dis.png");
-    QPixmap pixmap_bt1(":/icons/assets/bt_con.png");
-    pixmap_bt0 = pixmap_bt0.scaled(50, 50, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    pixmap_bt1 = pixmap_bt1.scaled(50, 50, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-
-    if (flag)
+    // Close if open and vice versa
+    if (!serial.isOpen())
     {
-        ui->label_bt->setPixmap(pixmap_bt0);
-        ui->push_power->setIcon(QIcon(":/icons/assets/pow_on.png"));
+        serial.setPortName(ui->comboBox_btport->currentText());
+        serial.setBaudRate(ui->comboBox_btbaud->currentData().toInt());
+        serial.setDataBits(QSerialPort::Data8);
+        serial.setParity(QSerialPort::NoParity);
+        serial.setStopBits(QSerialPort::OneStop);
+        serial.setFlowControl(QSerialPort::NoFlowControl);
+
+        if (serial.open(QIODevice::ReadWrite))
+        {
+            QPixmap pixmap_btconn(":/icons/assets/bt_con.png");
+            ui->label_bt->setPixmap(pixmap_btconn);
+            ui->label_bt_3->setPixmap(pixmap_btconn);
+            ui->label_bt_4->setPixmap(pixmap_btconn);
+            ui->label_bt_5->setPixmap(pixmap_btconn);
+            ui->label_bt_6->setPixmap(pixmap_btconn);
+            ui->pusb_btconn->setText("DISCONNECT");
+        }
+        else // Failed attempt to open serial
+        {
+            QPixmap pixmap_btdis(":/icons/assets/bt_dis.png");
+            ui->label_bt->setPixmap(pixmap_btdis);
+            ui->label_bt_3->setPixmap(pixmap_btdis);
+            ui->label_bt_4->setPixmap(pixmap_btdis);
+            ui->label_bt_5->setPixmap(pixmap_btdis);
+            ui->label_bt_6->setPixmap(pixmap_btdis);
+            ui->pusb_btconn->setText("CONNECT");
+        }
     }
     else
     {
-        ui->label_bt->setPixmap(pixmap_bt1);
-        ui->push_power->setIcon(QIcon(":/icons/assets/pow_off.png"));
-    }
+        serial.close();
 
-    flag = !flag;
+        QPixmap pixmap_btdis(":/icons/assets/bt_dis.png");
+        ui->label_bt->setPixmap(pixmap_btdis);
+        ui->label_bt_3->setPixmap(pixmap_btdis);         ui->label_bt_3->setPixmap(pixmap_btdis);
+        ui->label_bt_4->setPixmap(pixmap_btdis);
+        ui->label_bt_5->setPixmap(pixmap_btdis);
+        ui->label_bt_6->setPixmap(pixmap_btdis);
+        ui->pusb_btconn->setText("CONNECT");
+    }
+}
+
+void MainWindow::on_push_btrefresh_clicked()
+{
+    populate_serial_ports(ui->comboBox_btport);
+}
+
+void MainWindow::on_hslider_motor_sliderMoved(int position)
+{
+    ui->lineEdit_motor->setText(QString::number(position));
+}
+
+void MainWindow::on_hslider_satrate_sliderMoved(int position)
+{
+    ui->lineEdit_satrate->setText(QString::number(position));
+}
+
+void MainWindow::on_hslider_satyaw_sliderMoved(int position)
+{
+    ui->lineEdit_satyaw->setText(QString::number(position));
 }
