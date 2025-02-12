@@ -174,9 +174,16 @@ void MainWindow::init_inclinometer_gauge(void)
     mAttitudeGauge->addGlass(80);
 }
 
+// Accidental attempt to open some port hangs the software.
+// How to detect and not populate such ports?
 void MainWindow::populate_serial_ports(QComboBox *cb)
 {
     cb->clear();
+
+    if(serial.isOpen())
+    {
+        serial.close();
+    }
 
     foreach (const QSerialPortInfo &port, QSerialPortInfo::availablePorts())
     {
