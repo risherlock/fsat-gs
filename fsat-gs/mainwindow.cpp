@@ -62,11 +62,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_plot_yaw->yAxis->setLabelColor(Qt::blue);
     ui->widget_plot_yaw->replot();
 
+    ui->comboBox_btbaud->addItem("115200", 115200);
     ui->comboBox_btbaud->addItem("9600", 9600);
     ui->comboBox_btbaud->addItem("19200", 19200);
     ui->comboBox_btbaud->addItem("38400", 38400);
     ui->comboBox_btbaud->addItem("57600", 57600);
-    ui->comboBox_btbaud->addItem("115200", 115200);
     populate_serial_ports(ui->comboBox_btport);
 }
 
@@ -185,10 +185,14 @@ void MainWindow::populate_serial_ports(QComboBox *cb)
         serial.close();
     }
 
-    foreach (const QSerialPortInfo &port, QSerialPortInfo::availablePorts())
+    QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
+    std::reverse(ports.begin(), ports.end());
+
+    foreach (const QSerialPortInfo &port, ports)
     {
         cb->addItem(port.portName());
     }
+
 
     if (cb->count() == 0)
     {
@@ -215,6 +219,7 @@ void MainWindow::on_pusb_btconn_clicked()
 
         if (serial.open(QIODevice::ReadWrite))
         {
+            connect(&serial, &QSerialPort::readyRead, this, &MainWindow::handleReadyRead);
             QPixmap pixmap_btconn(":/icons/assets/bt_con.png");
             ui->label_bt->setPixmap(pixmap_btconn);
             ui->label_bt_3->setPixmap(pixmap_btconn);
@@ -240,7 +245,7 @@ void MainWindow::on_pusb_btconn_clicked()
 
         QPixmap pixmap_btdis(":/icons/assets/bt_dis.png");
         ui->label_bt->setPixmap(pixmap_btdis);
-        ui->label_bt_3->setPixmap(pixmap_btdis);         ui->label_bt_3->setPixmap(pixmap_btdis);
+        ui->label_bt_3->setPixmap(pixmap_btdis);
         ui->label_bt_4->setPixmap(pixmap_btdis);
         ui->label_bt_5->setPixmap(pixmap_btdis);
         ui->label_bt_6->setPixmap(pixmap_btdis);
@@ -266,4 +271,11 @@ void MainWindow::on_hslider_satrate_sliderMoved(int position)
 void MainWindow::on_hslider_satyaw_sliderMoved(int position)
 {
     ui->lineEdit_satyaw->setText(QString::number(position));
+}
+
+void MainWindow::handleReadyRead()
+{
+    QByteArray data = serial.readAll();
+    QString str = QString(data);
+    qDebug() << str;
 }

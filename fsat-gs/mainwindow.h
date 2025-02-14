@@ -24,12 +24,10 @@ public:
 private slots:
     void on_pusb_btconn_clicked();
     void on_push_btrefresh_clicked();
-
     void on_hslider_motor_sliderMoved(int position);
-
     void on_hslider_satrate_sliderMoved(int position);
-
     void on_hslider_satyaw_sliderMoved(int position);
+    void handleReadyRead();
 
 private:
     Ui::MainWindow *ui;
