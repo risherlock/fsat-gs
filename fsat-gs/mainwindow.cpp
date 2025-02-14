@@ -273,6 +273,19 @@ void MainWindow::on_hslider_satyaw_sliderMoved(int position)
     ui->lineEdit_satyaw->setText(QString::number(position));
 }
 
+typedef struct
+{
+    float a[3]; // Accelerometer [m/s^2]
+    float m[3]; // Magnetometer [uT]
+    float g[3]; // Gyroscope [deg/s]
+    float e[3]; // Euler angles (yaw, pitch, roll) [deg]
+    float b;    // Battery voltage [V]
+    float w;    // Motor angular rate [deg/s]
+} telemetry_t;
+
+bool parse_telemetry(const QString &rx, telemetry_t &t);
+void print_telemetry(const telemetry_t &t);
+
 void MainWindow::handleReadyRead()
 {
     rxbt += serial.readAll();
@@ -284,6 +297,90 @@ void MainWindow::handleReadyRead()
     }
 
     QString rxstr = QString(rxbt);
+    telemetry_t t = {.a = {0.0}, .m = {0.0}, .g = {0.0}, .e = {0.0}, .b = 0.0, .w = 0.0};
+
+    if(parse_telemetry(rxstr, t))
+    {
+        print_telemetry(t);
+    }
+
+    // Clear for next frame
     rxbt.clear();
-    qDebug() << rxstr;
+    // qDebug() << rxstr;
+}
+
+void print_telemetry(const telemetry_t &t)
+{
+    qDebug() << "Telemetry:";
+    qDebug() << "  Accelerometer      :" << t.a[0] << "," << t.a[1] << "," << t.a[2];
+    qDebug() << "  Magnetometer       :" << t.m[0] << "," << t.m[1] << "," << t.m[2];
+    qDebug() << "  Gyroscope          :" << t.g[0] << "," << t.g[1] << "," << t.g[2];
+    qDebug() << "  Euler Angles       :" << t.e[0] << "," << t.e[1] << "," << t.e[2];
+    qDebug() << "  Battery Voltage    :" << t.b;
+    qDebug() << "  Motor Angular Rate :" << t.w;
+}
+
+bool parse_telemetry(const QString &rx, telemetry_t &t)
+{
+    // Split the input string by commas
+    QStringList components = rx.split(',');
+
+    // Iterate over each comma separated components
+    for (const QString &component : components)
+    {
+        // Split by colon to separate type and values
+        QStringList parts = component.split(':');
+        if (parts.size() != 2)
+        {
+            qWarning() << "Invalid component:" << component;
+            // continue;
+            return false;
+        }
+
+        QString type = parts[0];
+        QStringList values = parts[1].split('x');
+
+        if (type == "a") // Accelerometer
+        {
+            for (int i = 0; i < 3; ++i)
+            {
+                t.a[i] = values[i].toFloat();
+            }
+        }
+        else if (type == "m") // Magnetometer
+        {
+            for (int i = 0; i < 3; ++i) {
+                t.m[i] = values[i].toFloat();
+            }
+        }
+        else if (type == "g") // Gyroscope
+        {
+            for (int i = 0; i < 3; ++i)
+            {
+                t.g[i] = values[i].toFloat();
+            }
+        }
+        else if (type == "e") // Euler angles
+        {
+            for (int i = 0; i < 3; ++i)
+            {
+                t.e[i] = values[i].toFloat();
+            }
+        }
+        else if (type == "b") // Battery voltage
+        {
+            t.b = values[0].toFloat();
+        }
+        else if (type == "w") // Motor angular rate
+        {
+            t.w = values[0].toFloat();
+        }
+        else
+        {
+            qWarning() << "Unknown data type:" << type;
+            return false;
+        }
+    }
+
+    return true;
 }

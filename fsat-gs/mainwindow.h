@@ -46,7 +46,6 @@ private:
     QcNeedleItem *mSpeedNeedle;
     QSerialPort serial;
 
-
     QByteArray rxbt;
 };
 #endif // MAINWINDOW_H

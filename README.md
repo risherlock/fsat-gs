@@ -5,6 +5,10 @@
 1. Icons (200x): https://fonts.google.com/
 2. AHRS instruments widget: https://github.com/hadjTahar/Qt-custom-gauge-widget
 
+## Todos
+
+1. Check if there are indeed n number of floats after ':' in telemetry
+
 ## Software
 ```
 Qt Creator 15.0.1
