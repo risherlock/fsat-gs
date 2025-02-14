@@ -9,6 +9,8 @@
 
 1. Check if there are indeed n number of floats after ':' in telemetry
 2. Indicate bluetooth communication break
+3. Timer interrupt for replot. Add data but donot replot.
+4. Telemetry and plotters are crying for their own files.
 
 ## Software
 ```

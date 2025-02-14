@@ -35,6 +35,12 @@ MainWindow::MainWindow(QWidget *parent)
     init_angular_rate_gauge();
     init_inclinometer_gauge();
 
+    // Graph colour and width
+    QPen setPointPen(QColor(0, 114, 189));
+    QPen feedbackPen(QColor(217, 83, 25));
+    setPointPen.setWidth(2);
+    feedbackPen.setWidth(2);
+
     // Labels on motor angular rate
     ui->widget_plot_motor_rate->xAxis->setLabel("Time [s]");
     ui->widget_plot_motor_rate->yAxis->setLabel("[°/s]");
@@ -43,11 +49,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_plot_motor_rate->xAxis->setLabelColor(Qt::blue);
     ui->widget_plot_motor_rate->yAxis->setLabelColor(Qt::blue);
     ui->widget_plot_motor_rate->addGraph(); // Graph 0 -> Set Point
-    ui->widget_plot_motor_rate->graph(0)->setName("Set Point");
-    ui->widget_plot_motor_rate->graph(0)->setPen(QPen(Qt::red));
     ui->widget_plot_motor_rate->addGraph(); // Graph 1 -> Feedback
+    ui->widget_plot_motor_rate->graph(0)->setName("Set Point");
     ui->widget_plot_motor_rate->graph(1)->setName("Feedback");
-    ui->widget_plot_motor_rate->graph(1)->setPen(QPen(Qt::green));
+    ui->widget_plot_motor_rate->legend->setVisible(true);
+    ui->widget_plot_motor_rate->graph(0)->setPen(setPointPen);
+    ui->widget_plot_motor_rate->graph(1)->setPen(feedbackPen);;
     ui->widget_plot_motor_rate->replot();
 
     // Labels on satellite angular rate
@@ -58,11 +65,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_plot_sat_rate->xAxis->setLabelColor(Qt::blue);
     ui->widget_plot_sat_rate->yAxis->setLabelColor(Qt::blue);
     ui->widget_plot_sat_rate->addGraph(); // Graph 0 -> Set Point
-    ui->widget_plot_sat_rate->graph(0)->setName("Set Point");
-    ui->widget_plot_sat_rate->graph(0)->setPen(QPen(Qt::red));
     ui->widget_plot_sat_rate->addGraph(); // Graph 1 -> Feedback
+    ui->widget_plot_sat_rate->graph(0)->setName("Set Point");
     ui->widget_plot_sat_rate->graph(1)->setName("Feedback");
-    ui->widget_plot_sat_rate->graph(1)->setPen(QPen(Qt::green));
+    ui->widget_plot_sat_rate->legend->setVisible(true);
+    ui->widget_plot_sat_rate->graph(0)->setPen(setPointPen);
+    ui->widget_plot_sat_rate->graph(1)->setPen(feedbackPen);
     ui->widget_plot_sat_rate->replot();
 
     // Labels on satellite yaw
@@ -73,11 +81,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_plot_yaw->xAxis->setLabelColor(Qt::blue);
     ui->widget_plot_yaw->yAxis->setLabelColor(Qt::blue);
     ui->widget_plot_yaw->addGraph(); // Graph 0 -> Set Point
-    ui->widget_plot_yaw->graph(0)->setName("Set Point");
     ui->widget_plot_yaw->graph(0)->setPen(QPen(Qt::red));
     ui->widget_plot_yaw->addGraph(); // Graph 1 -> Feedback
+    ui->widget_plot_yaw->graph(0)->setName("Set Point");
     ui->widget_plot_yaw->graph(1)->setName("Feedback");
+    ui->widget_plot_yaw->legend->setVisible(true);
     ui->widget_plot_yaw->graph(1)->setPen(QPen(Qt::green));
+    ui->widget_plot_yaw->graph(0)->setPen(setPointPen);
+    ui->widget_plot_yaw->graph(1)->setPen(feedbackPen);
     ui->widget_plot_yaw->replot();
 
     ui->comboBox_btbaud->addItem("115200", 115200);
@@ -253,6 +264,13 @@ void MainWindow::on_pusb_btconn_clicked()
             ui->label_bt_4->setPixmap(pixmap_btdis);
             ui->label_bt_5->setPixmap(pixmap_btdis);
             ui->label_bt_6->setPixmap(pixmap_btdis);
+
+            QPixmap pixmap_batt(":/icons/assets/batt_what.png");
+            ui->label_batt->setPixmap(pixmap_batt);
+            ui->label_batt_3->setPixmap(pixmap_batt);
+            ui->label_batt_4->setPixmap(pixmap_batt);
+            ui->label_batt_5->setPixmap(pixmap_batt);
+            ui->label_batt_6->setPixmap(pixmap_batt);
             ui->pusb_btconn->setText("CONNECT");
         }
     }
@@ -266,6 +284,13 @@ void MainWindow::on_pusb_btconn_clicked()
         ui->label_bt_4->setPixmap(pixmap_btdis);
         ui->label_bt_5->setPixmap(pixmap_btdis);
         ui->label_bt_6->setPixmap(pixmap_btdis);
+
+        QPixmap pixmap_batt(":/icons/assets/batt_what.png");
+        ui->label_batt->setPixmap(pixmap_batt);
+        ui->label_batt_3->setPixmap(pixmap_batt);
+        ui->label_batt_4->setPixmap(pixmap_batt);
+        ui->label_batt_5->setPixmap(pixmap_batt);
+        ui->label_batt_6->setPixmap(pixmap_batt);
         ui->pusb_btconn->setText("CONNECT");
     }
 }
@@ -328,23 +353,63 @@ void MainWindow::populate_telemetry(const telemetry_t &t)
     ypv.append((double)t.e[0]);
     time.append((double)count++);
 
+    if (time.size() > 250)
+    {
+        time.removeFirst();
+        msp.removeFirst();
+        mpv.removeFirst();
+        wsp.removeFirst();
+        wpv.removeFirst();
+        ysp.removeFirst();
+        ypv.removeFirst();
+    }
+
+    // Plot motor angular rate
     ui->widget_plot_motor_rate->graph(0)->setData(time, msp);
     ui->widget_plot_motor_rate->graph(1)->setData(time, mpv);
-    ui->widget_plot_motor_rate->replot();
     ui->widget_plot_motor_rate->xAxis->setRange(time.first(), time.last());
-    ui->widget_plot_motor_rate->yAxis->rescale();
 
+    QCustomPlot *plot = ui->widget_plot_motor_rate;
+    QCPGraph *graph1 = plot->graph(0);
+    QCPGraph *graph2 = plot->graph(1);
+    graph1->rescaleValueAxis(true);
+    graph2->rescaleValueAxis(true);
+
+    ui->widget_plot_motor_rate->replot();
+
+    // Plot satellite angular rate
     ui->widget_plot_sat_rate->graph(0)->setData(time, wsp);
     ui->widget_plot_sat_rate->graph(1)->setData(time, wpv);
-    ui->widget_plot_sat_rate->replot();
     ui->widget_plot_sat_rate->xAxis->setRange(time.first(), time.last());
-    ui->widget_plot_sat_rate->yAxis->rescale();
 
+    plot = ui->widget_plot_sat_rate;
+    graph1 = plot->graph(0);
+    graph2 = plot->graph(1);
+    graph1->rescaleValueAxis(true);
+    graph2->rescaleValueAxis(true);
+
+    ui->widget_plot_sat_rate->replot();
+
+    // Plot satellite yaw
     ui->widget_plot_yaw->graph(0)->setData(time, ysp);
     ui->widget_plot_yaw->graph(1)->setData(time, ypv);
-    ui->widget_plot_yaw->replot();
     ui->widget_plot_yaw->xAxis->setRange(time.first(), time.last());
-    ui->widget_plot_yaw->yAxis->rescale();
+
+    plot = ui->widget_plot_yaw;
+    graph1 = plot->graph(0);
+    graph2 = plot->graph(1);
+    graph1->rescaleValueAxis(true);
+    graph2->rescaleValueAxis(true);
+
+    ui->widget_plot_yaw->replot();
+
+    // Set battery label
+    QPixmap pixmap_batt(":/icons/assets/batt_full.png");
+    ui->label_batt->setPixmap(pixmap_batt);
+    ui->label_batt_3->setPixmap(pixmap_batt);
+    ui->label_batt_4->setPixmap(pixmap_batt);
+    ui->label_batt_5->setPixmap(pixmap_batt);
+    ui->label_batt_6->setPixmap(pixmap_batt);
 }
 
 bool parse_telemetry(const QString &rx, telemetry_t &t);
@@ -366,7 +431,7 @@ void MainWindow::handleReadyRead()
     if(parse_telemetry(rxstr, t))
     {
         populate_telemetry(t);
-        print_telemetry(t);
+        // print_telemetry(t);
     }
 
     // Clear for next frame

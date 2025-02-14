@@ -521,7 +521,7 @@
          <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
-            <x>27</x>
+            <x>10</x>
             <y>45</y>
             <width>121</width>
             <height>70</height>
@@ -601,15 +601,15 @@
          <widget class="QLabel" name="label_pitch">
           <property name="geometry">
            <rect>
-            <x>160</x>
+            <x>149</x>
             <y>82</y>
-            <width>50</width>
-            <height>16</height>
+            <width>61</width>
+            <height>20</height>
            </rect>
           </property>
           <property name="maximumSize">
            <size>
-            <width>50</width>
+            <width>100</width>
             <height>16777215</height>
            </size>
           </property>
@@ -627,15 +627,15 @@
          <widget class="QLabel" name="label_roll">
           <property name="geometry">
            <rect>
-            <x>160</x>
+            <x>149</x>
             <y>64</y>
-            <width>50</width>
-            <height>16</height>
+            <width>61</width>
+            <height>20</height>
            </rect>
           </property>
           <property name="maximumSize">
            <size>
-            <width>50</width>
+            <width>100</width>
             <height>16777215</height>
            </size>
           </property>
@@ -653,15 +653,15 @@
          <widget class="QLabel" name="label_satrate">
           <property name="geometry">
            <rect>
-            <x>160</x>
+            <x>149</x>
             <y>46</y>
-            <width>50</width>
-            <height>16</height>
+            <width>61</width>
+            <height>20</height>
            </rect>
           </property>
           <property name="maximumSize">
            <size>
-            <width>50</width>
+            <width>100</width>
             <height>16777215</height>
            </size>
           </property>
@@ -679,15 +679,15 @@
          <widget class="QLabel" name="label_yaw">
           <property name="geometry">
            <rect>
-            <x>160</x>
+            <x>149</x>
             <y>100</y>
-            <width>50</width>
-            <height>16</height>
+            <width>61</width>
+            <height>20</height>
            </rect>
           </property>
           <property name="maximumSize">
            <size>
-            <width>50</width>
+            <width>100</width>
             <height>16777215</height>
            </size>
           </property>
