@@ -8,6 +8,7 @@
 ## Todos
 
 1. Check if there are indeed n number of floats after ':' in telemetry
+2. Indicate bluetooth communication break
 
 ## Software
 ```

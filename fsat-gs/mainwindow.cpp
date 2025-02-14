@@ -273,15 +273,15 @@ void MainWindow::on_hslider_satyaw_sliderMoved(int position)
     ui->lineEdit_satyaw->setText(QString::number(position));
 }
 
-typedef struct
+void MainWindow::populate_telemetry(const telemetry_t &t)
 {
-    float a[3]; // Accelerometer [m/s^2]
-    float m[3]; // Magnetometer [uT]
-    float g[3]; // Gyroscope [deg/s]
-    float e[3]; // Euler angles (yaw, pitch, roll) [deg]
-    float b;    // Battery voltage [V]
-    float w;    // Motor angular rate [deg/s]
-} telemetry_t;
+    // AHRS instruments
+    mCompassNeedle->setCurrentValue(t.e[0]);
+    mAttMeter->setCurrentPitch(t.e[1]);
+    mAttMeter->setCurrentRoll(t.e[2]);
+    mAttitudeNeedle->setCurrentValue(90-t.e[2]);
+    mSpeedNeedle->setCurrentValue(t.g[2]);
+}
 
 bool parse_telemetry(const QString &rx, telemetry_t &t);
 void print_telemetry(const telemetry_t &t);
@@ -301,6 +301,7 @@ void MainWindow::handleReadyRead()
 
     if(parse_telemetry(rxstr, t))
     {
+        populate_telemetry(t);
         print_telemetry(t);
     }
 

@@ -7,6 +7,16 @@
 
 #include "qcgaugewidget.h"
 
+typedef struct
+{
+    float a[3]; // Accelerometer [m/s^2]
+    float m[3]; // Magnetometer [uT]
+    float g[3]; // Gyroscope [deg/s]
+    float e[3]; // Euler angles (yaw, pitch, roll) [deg]
+    float b;    // Battery voltage [V]
+    float w;    // Motor angular rate [deg/s]
+} telemetry_t;
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -36,13 +46,14 @@ private:
     void init_angular_rate_gauge(void);
     void init_inclinometer_gauge(void);
     void populate_serial_ports(QComboBox *cb);
+    void populate_telemetry(const telemetry_t &t);
 
     QcGaugeWidget * mAttitudeGauge;
     QcNeedleItem * mAttitudeNeedle;
     QcAttitudeMeter *mAttMeter;
-    QcGaugeWidget * mCompassGauge;
+    QcGaugeWidget *mCompassGauge;
     QcNeedleItem *mCompassNeedle;
-    QcGaugeWidget * mSpeedGauge;
+    QcGaugeWidget *mSpeedGauge;
     QcNeedleItem *mSpeedNeedle;
     QSerialPort serial;
 
