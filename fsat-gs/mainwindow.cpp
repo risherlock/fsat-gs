@@ -42,6 +42,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_plot_motor_rate->yAxis->setLabelFont(QFont("Courier New", 12));
     ui->widget_plot_motor_rate->xAxis->setLabelColor(Qt::blue);
     ui->widget_plot_motor_rate->yAxis->setLabelColor(Qt::blue);
+    ui->widget_plot_motor_rate->addGraph(); // Graph 0 -> Set Point
+    ui->widget_plot_motor_rate->graph(0)->setName("Set Point");
+    ui->widget_plot_motor_rate->graph(0)->setPen(QPen(Qt::red));
+    ui->widget_plot_motor_rate->addGraph(); // Graph 1 -> Feedback
+    ui->widget_plot_motor_rate->graph(1)->setName("Feedback");
+    ui->widget_plot_motor_rate->graph(1)->setPen(QPen(Qt::green));
     ui->widget_plot_motor_rate->replot();
 
     // Labels on satellite angular rate
@@ -51,6 +57,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_plot_sat_rate->yAxis->setLabelFont(QFont("Courier New", 12));
     ui->widget_plot_sat_rate->xAxis->setLabelColor(Qt::blue);
     ui->widget_plot_sat_rate->yAxis->setLabelColor(Qt::blue);
+    ui->widget_plot_sat_rate->addGraph(); // Graph 0 -> Set Point
+    ui->widget_plot_sat_rate->graph(0)->setName("Set Point");
+    ui->widget_plot_sat_rate->graph(0)->setPen(QPen(Qt::red));
+    ui->widget_plot_sat_rate->addGraph(); // Graph 1 -> Feedback
+    ui->widget_plot_sat_rate->graph(1)->setName("Feedback");
+    ui->widget_plot_sat_rate->graph(1)->setPen(QPen(Qt::green));
     ui->widget_plot_sat_rate->replot();
 
     // Labels on satellite yaw
@@ -60,6 +72,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_plot_yaw->yAxis->setLabelFont(QFont("Courier New", 12));
     ui->widget_plot_yaw->xAxis->setLabelColor(Qt::blue);
     ui->widget_plot_yaw->yAxis->setLabelColor(Qt::blue);
+    ui->widget_plot_yaw->addGraph(); // Graph 0 -> Set Point
+    ui->widget_plot_yaw->graph(0)->setName("Set Point");
+    ui->widget_plot_yaw->graph(0)->setPen(QPen(Qt::red));
+    ui->widget_plot_yaw->addGraph(); // Graph 1 -> Feedback
+    ui->widget_plot_yaw->graph(1)->setName("Feedback");
+    ui->widget_plot_yaw->graph(1)->setPen(QPen(Qt::green));
     ui->widget_plot_yaw->replot();
 
     ui->comboBox_btbaud->addItem("115200", 115200);
@@ -193,7 +211,6 @@ void MainWindow::populate_serial_ports(QComboBox *cb)
         cb->addItem(port.portName());
     }
 
-
     if (cb->count() == 0)
     {
         cb->addItem("No Ports Available");
@@ -281,6 +298,53 @@ void MainWindow::populate_telemetry(const telemetry_t &t)
     mAttMeter->setCurrentRoll(t.e[2]);
     mAttitudeNeedle->setCurrentValue(90-t.e[2]);
     mSpeedNeedle->setCurrentValue(t.g[2]);
+
+    // AHRS IMU/compass measurements
+    ui->label_ax->setText(QString::number(t.a[0]));
+    ui->label_ay->setText(QString::number(t.a[1]));
+    ui->label_az->setText(QString::number(t.a[2]));
+    ui->label_gx->setText(QString::number(t.g[0]));
+    ui->label_gy->setText(QString::number(t.g[1]));
+    ui->label_gz->setText(QString::number(t.g[2]));
+    ui->label_mx->setText(QString::number(t.m[0]));
+    ui->label_my->setText(QString::number(t.m[1]));
+    ui->label_mz->setText(QString::number(t.m[2]));
+
+    // AHRS Euler angles and angular rate
+    ui->label_yaw->setText(QString::number(t.e[0]));
+    ui->label_pitch->setText(QString::number(t.e[1]));
+    ui->label_roll->setText(QString::number(t.e[2]));
+    ui->label_satrate->setText(QString::number(t.g[2]));
+
+    // Set points and feedback (process variable) plots
+    static QVector<double> time, msp, mpv, wsp, wpv, ysp, ypv;
+    static int count;
+
+    msp.append((double)ui->hslider_motor->value());
+    wsp.append((double)ui->hslider_satrate->value());
+    ysp.append((double)ui->hslider_satyaw->value());
+    mpv.append((double)t.w);
+    wpv.append((double)t.g[2]);
+    ypv.append((double)t.e[0]);
+    time.append((double)count++);
+
+    ui->widget_plot_motor_rate->graph(0)->setData(time, msp);
+    ui->widget_plot_motor_rate->graph(1)->setData(time, mpv);
+    ui->widget_plot_motor_rate->replot();
+    ui->widget_plot_motor_rate->xAxis->setRange(time.first(), time.last());
+    ui->widget_plot_motor_rate->yAxis->rescale();
+
+    ui->widget_plot_sat_rate->graph(0)->setData(time, wsp);
+    ui->widget_plot_sat_rate->graph(1)->setData(time, wpv);
+    ui->widget_plot_sat_rate->replot();
+    ui->widget_plot_sat_rate->xAxis->setRange(time.first(), time.last());
+    ui->widget_plot_sat_rate->yAxis->rescale();
+
+    ui->widget_plot_yaw->graph(0)->setData(time, ysp);
+    ui->widget_plot_yaw->graph(1)->setData(time, ypv);
+    ui->widget_plot_yaw->replot();
+    ui->widget_plot_yaw->xAxis->setRange(time.first(), time.last());
+    ui->widget_plot_yaw->yAxis->rescale();
 }
 
 bool parse_telemetry(const QString &rx, telemetry_t &t);
@@ -307,7 +371,6 @@ void MainWindow::handleReadyRead()
 
     // Clear for next frame
     rxbt.clear();
-    // qDebug() << rxstr;
 }
 
 void print_telemetry(const telemetry_t &t)
