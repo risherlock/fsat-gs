@@ -275,7 +275,15 @@ void MainWindow::on_hslider_satyaw_sliderMoved(int position)
 
 void MainWindow::handleReadyRead()
 {
-    QByteArray data = serial.readAll();
-    QString str = QString(data);
-    qDebug() << str;
+    rxbt += serial.readAll();
+
+    // Still more to append
+    if(!QString(rxbt).contains("\r\n"))
+    {
+      return;
+    }
+
+    QString rxstr = QString(rxbt);
+    rxbt.clear();
+    qDebug() << rxstr;
 }

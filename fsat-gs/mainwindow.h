@@ -45,5 +45,8 @@ private:
     QcGaugeWidget * mSpeedGauge;
     QcNeedleItem *mSpeedNeedle;
     QSerialPort serial;
+
+
+    QByteArray rxbt;
 };
 #endif // MAINWINDOW_H
