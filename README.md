@@ -11,8 +11,18 @@
 2. Indicate bluetooth communication break
 3. Timer interrupt for replot. Add data but donot replot.
 4. Telemetry and plotters are crying for their own files.
+5. Add data but plot when we are on respective tab.
 
-## Software
+## Immediate todos
+
+1. Telecommand
+2. PID gains and setpoints
+3. Acknowledgement detector
+
+## Version
+
+This project was last compiled/tested with
+
 ```
 Qt Creator 15.0.1
 Based on Qt 6.8.1 (MSVC 2022, x86_64)
