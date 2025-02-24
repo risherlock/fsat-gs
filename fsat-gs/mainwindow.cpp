@@ -4,6 +4,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#define TCMD_START_CHAR '$'
+#define TCMD_DELIMITER  ':'
+#define TCMD_STOP_CHAR  '#'
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -295,6 +299,28 @@ void MainWindow::on_pusb_btconn_clicked()
     }
 }
 
+void MainWindow::transmit_telecommand(const tcommand_t cmd, const double value)
+{
+    // Convert the cmd to a string
+    std::ostringstream cmd_stream;
+    cmd_stream << static_cast<int>(cmd);
+    std::string cmd_str = cmd_stream.str();
+
+    // Construct telecommand
+    std::string packet;
+    packet += TCMD_START_CHAR;
+    packet += cmd_str;
+    packet += TCMD_DELIMITER;
+    packet += std::to_string(value);
+    packet += TCMD_STOP_CHAR;
+    packet += std::string("\0");
+
+    // Transmit telecommand without null character
+    qDebug() << packet << ", " << packet.length();
+    serial.write(packet.c_str(), packet.length());
+    serial.flush();
+}
+
 void MainWindow::on_push_btrefresh_clicked()
 {
     populate_serial_ports(ui->comboBox_btport);
@@ -345,9 +371,9 @@ void MainWindow::populate_telemetry(const telemetry_t &t)
     static QVector<double> time, msp, mpv, wsp, wpv, ysp, ypv;
     static int count;
 
-    msp.append((double)ui->hslider_motor->value());
-    wsp.append((double)ui->hslider_satrate->value());
-    ysp.append((double)ui->hslider_satyaw->value());
+    msp.append(spm);
+    wsp.append(spw);
+    ysp.append(spy);
     mpv.append((double)t.w);
     wpv.append((double)t.g[2]);
     ypv.append((double)t.e[0]);
@@ -512,4 +538,25 @@ bool parse_telemetry(const QString &rx, telemetry_t &t)
     }
 
     return true;
+}
+
+void MainWindow::on_push_set_spm_clicked()
+{
+    spm =  ui->lineEdit_motor->text().toDouble(); // Read value
+    ui->hslider_motor->setValue((int)spm);        // Update slider
+    transmit_telecommand(TCMD_SP_MW, spm);        // Transmit value
+}
+
+void MainWindow::on_push_set_spy_clicked()
+{
+    spy =  ui->lineEdit_satyaw->text().toDouble(); // Read value
+    ui->hslider_satyaw->setValue((int)spy);        // Update slider
+    transmit_telecommand(TCMD_SP_SY, spy);         // Transmit value
+}
+
+void MainWindow::on_push_set_spw_clicked()
+{
+    spw =  ui->lineEdit_satrate->text().toDouble(); // Read value
+    ui->hslider_satrate->setValue((int)spw);        // Update slider
+    transmit_telecommand(TCMD_SP_SW, spw);          // Transmit value
 }

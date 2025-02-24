@@ -35,7 +35,7 @@
      <enum>QTabWidget::TabShape::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="home">
      <attribute name="title">
@@ -1575,7 +1575,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="push_power_4">
+         <widget class="QPushButton" name="push_set_spm">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -1836,7 +1836,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="push_power_11">
+         <widget class="QPushButton" name="push_set_spw">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -2582,7 +2582,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="push_power_13">
+         <widget class="QPushButton" name="push_set_spy">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>

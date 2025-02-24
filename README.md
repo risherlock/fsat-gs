@@ -15,7 +15,7 @@
 
 ## Immediate todos
 
-1. Telecommand
+1. <del>Telecommand</del>
 2. PID gains and setpoints
 3. Acknowledgement detector
 
