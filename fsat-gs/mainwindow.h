@@ -5,6 +5,7 @@
 #include <QSerialPort>
 #include <QMainWindow>
 
+#include "satconfig.h"
 #include "qcgaugewidget.h"
 
 // Enum used on fsat-ctrl too!
@@ -89,6 +90,10 @@ private slots:
 
     void on_push_set_spw_clicked();
 
+    void on_lineEdit_kpm_editingFinished();
+
+    void on_lineEdit_kim_editingFinished();
+
 private:
     Ui::MainWindow *ui;
 
@@ -99,19 +104,33 @@ private:
     void populate_serial_ports(QComboBox *cb);
     void populate_telemetry(const telemetry_t &t);
 
+    // Set point trackers
     double spm = 0.0, spw = 0.0, spy = 0.0; // Set points
-    double kpm = 0.0, kim = 0.0, kdm = 0.0; // PID params: Motor angular rate
-    double kpw = 0.0, kiw = 0.0, kdw = 0.0; // PID params: Satellite angular rate
-    double kpy = 0.0, kiy = 0.0, kdy = 0.0; // PID params: Satellite yaw
 
-    QcGaugeWidget * mAttitudeGauge;
-    QcNeedleItem * mAttitudeNeedle;
+    // PID params: Motor angular rate
+    double kpm = SAT_GAINS_MOTOR_OMEGA_KP;
+    double kim = SAT_GAINS_MOTOR_OMEGA_KI;
+
+    // PID params: Satellite angular rate
+    double kpw = SAT_GAINS_SAT_OMEGA_KP;
+    double kiw = SAT_GAINS_SAT_OMEGA_KP;
+
+    // PID params: Satellite yaw
+    double kpy = SAT_GAINS_SAT_YAW_KP;
+    double kiy = SAT_GAINS_SAT_YAW_KI;
+    double kdy = SAT_GAINS_SAT_YAW_KD;
+
+    QcGaugeWidget *mAttitudeGauge;
+    QcNeedleItem *mAttitudeNeedle;
     QcAttitudeMeter *mAttMeter;
     QcGaugeWidget *mCompassGauge;
     QcNeedleItem *mCompassNeedle;
     QcGaugeWidget *mSpeedGauge;
     QcNeedleItem *mSpeedNeedle;
     QSerialPort serial;
+    QLineEdit *last_edited = nullptr;
+    QMap<QLineEdit*, QString> pid_params;
+    QMap<QLineEdit*, tcommand_t> pid_params_id;
 
     QByteArray rxbt;
 };

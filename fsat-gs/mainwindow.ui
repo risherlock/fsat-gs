@@ -35,7 +35,7 @@
      <enum>QTabWidget::TabShape::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="home">
      <attribute name="title">
@@ -1279,7 +1279,7 @@
       <property name="alignment">
        <set>Qt::AlignmentFlag::AlignCenter</set>
       </property>
-      <widget class="QPushButton" name="push_power_5">
+      <widget class="QPushButton" name="push_pidm">
        <property name="geometry">
         <rect>
          <x>300</x>
@@ -1335,7 +1335,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_4"/>
+           <widget class="QLineEdit" name="lineEdit_kpm"/>
           </item>
          </layout>
         </item>
@@ -1372,7 +1372,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_7"/>
+           <widget class="QLineEdit" name="lineEdit_tfm"/>
           </item>
          </layout>
         </item>
@@ -1396,7 +1396,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_5"/>
+           <widget class="QLineEdit" name="lineEdit_kim"/>
           </item>
          </layout>
         </item>
@@ -1433,7 +1433,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_9"/>
+           <widget class="QLineEdit" name="lineEdit_bm"/>
           </item>
          </layout>
         </item>
@@ -1457,7 +1457,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_6"/>
+           <widget class="QLineEdit" name="lineEdit_kdm"/>
           </item>
          </layout>
         </item>
@@ -1494,7 +1494,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_8"/>
+           <widget class="QLineEdit" name="lineEdit_cm"/>
           </item>
          </layout>
         </item>
@@ -1880,7 +1880,7 @@
       <property name="alignment">
        <set>Qt::AlignmentFlag::AlignCenter</set>
       </property>
-      <widget class="QPushButton" name="push_power_12">
+      <widget class="QPushButton" name="push_pidw">
        <property name="geometry">
         <rect>
          <x>300</x>
@@ -1936,7 +1936,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_37"/>
+           <widget class="QLineEdit" name="lineEdit_kpw"/>
           </item>
          </layout>
         </item>
@@ -1973,7 +1973,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_38"/>
+           <widget class="QLineEdit" name="lineEdit_tfw"/>
           </item>
          </layout>
         </item>
@@ -1997,7 +1997,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_39"/>
+           <widget class="QLineEdit" name="lineEdit_kid"/>
           </item>
          </layout>
         </item>
@@ -2034,7 +2034,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_40"/>
+           <widget class="QLineEdit" name="lineEdit_bw"/>
           </item>
          </layout>
         </item>
@@ -2058,7 +2058,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_41"/>
+           <widget class="QLineEdit" name="lineEdit_kdw"/>
           </item>
          </layout>
         </item>
@@ -2095,7 +2095,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_42"/>
+           <widget class="QLineEdit" name="lineEdit_cw"/>
           </item>
          </layout>
         </item>
@@ -2289,7 +2289,7 @@
       <property name="alignment">
        <set>Qt::AlignmentFlag::AlignCenter</set>
       </property>
-      <widget class="QPushButton" name="push_power_14">
+      <widget class="QPushButton" name="push_pidy">
        <property name="geometry">
         <rect>
          <x>300</x>
@@ -2345,7 +2345,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_17"/>
+           <widget class="QLineEdit" name="lineEdit_kpy"/>
           </item>
          </layout>
         </item>
@@ -2382,7 +2382,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_18"/>
+           <widget class="QLineEdit" name="lineEdit_tfy"/>
           </item>
          </layout>
         </item>
@@ -2406,7 +2406,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_19"/>
+           <widget class="QLineEdit" name="lineEdit_kiy"/>
           </item>
          </layout>
         </item>
@@ -2443,7 +2443,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_20"/>
+           <widget class="QLineEdit" name="lineEdit_by"/>
           </item>
          </layout>
         </item>
@@ -2467,7 +2467,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_21"/>
+           <widget class="QLineEdit" name="lineEdit_kdy"/>
           </item>
          </layout>
         </item>
@@ -2504,7 +2504,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_43"/>
+           <widget class="QLineEdit" name="lineEdit_cy"/>
           </item>
          </layout>
         </item>

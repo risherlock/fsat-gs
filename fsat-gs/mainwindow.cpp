@@ -1,6 +1,7 @@
 #include <QSerialPortInfo>
 #include <QDebug>
 
+#include "satconfig.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -44,6 +45,76 @@ MainWindow::MainWindow(QWidget *parent)
     QPen feedbackPen(QColor(217, 83, 25));
     setPointPen.setWidth(2);
     feedbackPen.setWidth(2);
+
+    // Display default values
+    ui->lineEdit_kpm->setText(QString::number(SAT_GAINS_MOTOR_OMEGA_KP));
+    ui->lineEdit_kim->setText(QString::number(SAT_GAINS_MOTOR_OMEGA_KI));
+    ui->lineEdit_kpw->setText(QString::number(SAT_GAINS_SAT_OMEGA_KP));
+    ui->lineEdit_kid->setText(QString::number(SAT_GAINS_SAT_OMEGA_KI));
+    ui->lineEdit_kpy->setText(QString::number(SAT_GAINS_SAT_YAW_KP));
+    ui->lineEdit_kiy->setText(QString::number(SAT_GAINS_SAT_YAW_KI));
+    ui->lineEdit_kdy->setText(QString::number(SAT_GAINS_SAT_YAW_KD));
+
+    // Store the values to line edit in the QMap
+    pid_params[ui->lineEdit_kpm] = ui->lineEdit_kpm->text();
+    pid_params[ui->lineEdit_kim] = ui->lineEdit_kim->text();
+    pid_params[ui->lineEdit_kpw] = ui->lineEdit_kpw->text();
+    pid_params[ui->lineEdit_kid] = ui->lineEdit_kid->text();
+    pid_params[ui->lineEdit_kpy] = ui->lineEdit_kpy->text();
+    pid_params[ui->lineEdit_kiy] = ui->lineEdit_kiy->text();
+    pid_params[ui->lineEdit_kdy] = ui->lineEdit_kdy->text();
+    pid_params_id[ui->lineEdit_kpm] = TCMD_KPM;
+    pid_params_id[ui->lineEdit_kim] = TCMD_KIM;
+    pid_params_id[ui->lineEdit_kpw] = TCMD_KPW;
+    pid_params_id[ui->lineEdit_kid] = TCMD_KIW;
+    pid_params_id[ui->lineEdit_kpy] = TCMD_KPY;
+    pid_params_id[ui->lineEdit_kiy] = TCMD_KIY;
+    pid_params_id[ui->lineEdit_kdy] = TCMD_KDY;
+
+    // Lambda function to track changes and reset unconfirmed fields
+    auto track_line_edit = [this](QLineEdit *current)
+    {
+        // Reset previous field if another is edited
+        if (last_edited && last_edited != current)
+        {
+            last_edited->setText(pid_params[last_edited]);
+        }
+        last_edited = current;
+    };
+
+    auto process_button_click = [this]()
+    {
+        if (last_edited)
+        {
+            // Log the confirmed value of the last edited field
+            qDebug() << "Confirmed value of last edited field:" << last_edited->text();
+
+            // Update the PID parameters map with the last edited value
+            pid_params[last_edited] = last_edited->text();
+
+            // Convert the value to double and send the command
+            const double value = last_edited->text().toDouble();
+            tcommand_t cmd = pid_params_id[last_edited];
+            transmit_telecommand(cmd, value);
+        }
+
+        // Reset the last edited tracker
+        last_edited = nullptr;
+    };
+
+    // Connect each line edit to the common lambda
+    connect(ui->lineEdit_kpm, &QLineEdit::editingFinished, this, [this, track_line_edit](){track_line_edit(ui->lineEdit_kpm);});
+    connect(ui->lineEdit_kim, &QLineEdit::editingFinished, this, [this, track_line_edit](){track_line_edit(ui->lineEdit_kim);});
+    connect(ui->lineEdit_kpw, &QLineEdit::editingFinished, this, [this, track_line_edit](){track_line_edit(ui->lineEdit_kpw);});
+    connect(ui->lineEdit_kid, &QLineEdit::editingFinished, this, [this, track_line_edit](){track_line_edit(ui->lineEdit_kid);});
+    connect(ui->lineEdit_kpy, &QLineEdit::editingFinished, this, [this, track_line_edit](){track_line_edit(ui->lineEdit_kpy);});
+    connect(ui->lineEdit_kiy, &QLineEdit::editingFinished, this, [this, track_line_edit](){track_line_edit(ui->lineEdit_kiy);});
+    connect(ui->lineEdit_kdy, &QLineEdit::editingFinished, this, [this, track_line_edit](){track_line_edit(ui->lineEdit_kdy);});
+
+    // Connect each button to the common lambda
+    connect(ui->push_pidm, &QPushButton::clicked, this, process_button_click);
+    connect(ui->push_pidw, &QPushButton::clicked, this, process_button_click);
+    connect(ui->push_pidy, &QPushButton::clicked, this, process_button_click);
 
     // Labels on motor angular rate
     ui->widget_plot_motor_rate->xAxis->setLabel("Time [s]");
@@ -228,7 +299,7 @@ void MainWindow::populate_serial_ports(QComboBox *cb)
 
     if (cb->count() == 0)
     {
-        cb->addItem("No Ports Available");
+        cb->addItem("No Ports");
     }
 }
 
@@ -559,4 +630,12 @@ void MainWindow::on_push_set_spw_clicked()
     spw =  ui->lineEdit_satrate->text().toDouble(); // Read value
     ui->hslider_satrate->setValue((int)spw);        // Update slider
     transmit_telecommand(TCMD_SP_SW, spw);          // Transmit value
+}
+
+void MainWindow::on_lineEdit_kpm_editingFinished()
+{
+}
+
+void MainWindow::on_lineEdit_kim_editingFinished()
+{
 }

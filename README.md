@@ -16,7 +16,7 @@
 ## Immediate todos
 
 1. <del>Telecommand</del>
-2. PID gains and setpoints
+2. <del>PID gains and setpoints</del>
 3. Acknowledgement detector
 
 ## Version

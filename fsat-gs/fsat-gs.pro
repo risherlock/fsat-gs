@@ -16,7 +16,8 @@ SOURCES += \
 HEADERS += \
     qcgaugewidget.h \
     mainwindow.h \
-    qcustomplot.h
+    qcustomplot.h \
+    satconfig.h
 
 FORMS += \
     mainwindow.ui
