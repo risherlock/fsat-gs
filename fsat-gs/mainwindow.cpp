@@ -639,3 +639,20 @@ void MainWindow::on_lineEdit_kpm_editingFinished()
 void MainWindow::on_lineEdit_kim_editingFinished()
 {
 }
+
+void MainWindow::on_pushButton_mw_clicked()
+{
+    static bool flag = true;
+
+    if(flag)
+    {
+      transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_MOTOR_OMEGA);
+    }
+    else
+    {
+        transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_IDLE);
+    }
+
+    flag = !flag;
+}
+

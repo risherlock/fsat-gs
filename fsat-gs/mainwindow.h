@@ -8,6 +8,14 @@
 #include "satconfig.h"
 #include "qcgaugewidget.h"
 
+typedef enum                // Different control modes
+{
+    CTRL_MODE_MOTOR_OMEGA,  // Motor angular rate control
+    CTRL_MODE_SAT_OMEGA,    // Satellite angular rate control
+    CTRL_MODE_SAT_YAW,      // Satellite angular position control
+    CTRL_MODE_IDLE,         // Disable control
+} ctrl_mode_t;
+
 // Enum used on fsat-ctrl too!
 typedef enum
 {
@@ -93,6 +101,8 @@ private slots:
     void on_lineEdit_kpm_editingFinished();
 
     void on_lineEdit_kim_editingFinished();
+
+    void on_pushButton_mw_clicked();
 
 private:
     Ui::MainWindow *ui;
