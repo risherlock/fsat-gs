@@ -19,5 +19,9 @@
         <file>assets/send.png</file>
         <file>assets/lablogo.png</file>
         <file>assets/refresh.png</file>
+        <file>assets/mode_idle.png</file>
+        <file>assets/mode_mw.png</file>
+        <file>assets/mode_sw.png</file>
+        <file>assets/mode_sy.png</file>
     </qresource>
 </RCC>

@@ -1,5 +1,6 @@
 #include <QSerialPortInfo>
 #include <QDebug>
+#include <QIcon>
 
 #include "satconfig.h"
 #include "mainwindow.h"
@@ -507,6 +508,54 @@ void MainWindow::populate_telemetry(const telemetry_t &t)
     ui->label_batt_4->setPixmap(pixmap_batt);
     ui->label_batt_5->setPixmap(pixmap_batt);
     ui->label_batt_6->setPixmap(pixmap_batt);
+
+    // Change the icon to current mode
+    switch(t.c)
+    {
+    case CTRL_MODE_IDLE:
+    {
+        QIcon icon(":/icons/assets/mode_idle.png");
+        ui->push_mode->setIcon(icon);
+        ui->push_mode_3->setIcon(icon);
+        ui->push_mode_4->setIcon(icon);
+        ui->push_mode_5->setIcon(icon);
+        ui->push_mode_6->setIcon(icon);
+        break;
+    }
+
+    case CTRL_MODE_MOTOR_OMEGA:
+    {
+        QIcon icon(":/icons/assets/mode_mw.png");
+        ui->push_mode->setIcon(icon);
+        ui->push_mode_3->setIcon(icon);
+        ui->push_mode_4->setIcon(icon);
+        ui->push_mode_5->setIcon(icon);
+        ui->push_mode_6->setIcon(icon);
+        break;
+    }
+
+    case CTRL_MODE_SAT_OMEGA:
+    {
+        QIcon icon(":/icons/assets/mode_sw.png");
+        ui->push_mode->setIcon(icon);
+        ui->push_mode_3->setIcon(icon);
+        ui->push_mode_4->setIcon(icon);
+        ui->push_mode_5->setIcon(icon);
+        ui->push_mode_6->setIcon(icon);
+        break;
+    }
+
+    case CTRL_MODE_SAT_YAW:
+    {
+        QIcon icon(":/icons/assets/mode_sy.png");
+        ui->push_mode->setIcon(icon);
+        ui->push_mode_3->setIcon(icon);
+        ui->push_mode_4->setIcon(icon);
+        ui->push_mode_5->setIcon(icon);
+        ui->push_mode_6->setIcon(icon);
+        break;
+    }
+    }
 }
 
 bool parse_telemetry(const QString &rx, telemetry_t &t);
@@ -523,7 +572,7 @@ void MainWindow::handleReadyRead()
     }
 
     QString rxstr = QString(rxbt);
-    telemetry_t t = {.a = {0.0}, .m = {0.0}, .g = {0.0}, .e = {0.0}, .b = 0.0, .w = 0.0};
+    telemetry_t t = {.a = {0.0}, .m = {0.0}, .g = {0.0}, .e = {0.0}, .b = 0.0, .w = 0.0, .c = CTRL_MODE_IDLE};
 
     if(parse_telemetry(rxstr, t))
     {
@@ -601,6 +650,10 @@ bool parse_telemetry(const QString &rx, telemetry_t &t)
         {
             t.w = values[0].toFloat();
         }
+        else if (type == "c") // Satellite control mode
+        {
+            t.c = (ctrl_mode_t)values[0].toInt();
+        }
         else
         {
             qWarning() << "Unknown data type:" << type;
@@ -642,17 +695,40 @@ void MainWindow::on_lineEdit_kim_editingFinished()
 
 void MainWindow::on_pushButton_mw_clicked()
 {
-    static bool flag = true;
-
-    if(flag)
-    {
-      transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_MOTOR_OMEGA);
-    }
-    else
-    {
-        transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_IDLE);
-    }
-
-    flag = !flag;
+    transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_MOTOR_OMEGA);
 }
 
+void MainWindow::on_pushButton_sw_clicked()
+{
+    transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_SAT_OMEGA);
+}
+
+void MainWindow::on_pushButton_sy_clicked()
+{
+    transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_SAT_YAW);
+}
+
+void MainWindow::on_push_mode_clicked()
+{
+    transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_IDLE);
+}
+
+void MainWindow::on_push_mode_3_clicked()
+{
+    transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_IDLE);
+}
+
+void MainWindow::on_push_mode_4_clicked()
+{
+    transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_IDLE);
+}
+
+void MainWindow::on_push_mode_5_clicked()
+{
+    transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_IDLE);
+}
+
+void MainWindow::on_push_mode_6_clicked()
+{
+    transmit_telecommand(TCMD_CTRL_MODE, (double)CTRL_MODE_IDLE);
+}

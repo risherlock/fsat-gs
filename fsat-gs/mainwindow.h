@@ -63,6 +63,7 @@ typedef struct
     float e[3]; // Euler angles (yaw, pitch, roll) [deg]
     float b;    // Battery voltage [V]
     float w;    // Motor angular rate [deg/s]
+    ctrl_mode_t c; // Current satellite control mode
 } telemetry_t;
 
 QT_BEGIN_NAMESPACE
@@ -103,6 +104,20 @@ private slots:
     void on_lineEdit_kim_editingFinished();
 
     void on_pushButton_mw_clicked();
+
+    void on_pushButton_sw_clicked();
+
+    void on_pushButton_sy_clicked();
+
+    void on_push_mode_clicked();
+
+    void on_push_mode_3_clicked();
+
+    void on_push_mode_4_clicked();
+
+    void on_push_mode_5_clicked();
+
+    void on_push_mode_6_clicked();
 
 private:
     Ui::MainWindow *ui;
