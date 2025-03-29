@@ -1,2 +1,5 @@
 build
 .vscode
+*.pro.user.*
+*.pro.user
+.qtcreator

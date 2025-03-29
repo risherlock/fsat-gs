@@ -13,19 +13,13 @@
 4. Telemetry and plotters are crying for their own files.
 5. Add data but plot when we are on respective tab.
 
-## Immediate todos
-
-1. <del>Telecommand</del>
-2. <del>PID gains and setpoints</del>
-3. Acknowledgement detector
-
 ## Version
 
 This project was last compiled/tested with
 
 ```
-Qt Creator 15.0.1
-Based on Qt 6.8.1 (MSVC 2022, x86_64)
-Built on Jan 22 2025 13:47:55
-From revision 0855a2e14d
+Product: Qt Creator 16.0.0
+Based on: Qt 6.8.2 (GCC 10.3.1 20210422 (Red Hat 10.3.1-1), x86_64)
+Built on: Mar 11 2025 10:58:16
+From revision: 55ce4e9c06
 ```
